@@ -106,36 +106,45 @@ class SettingsPanel:
         self._l1_idx = val
         config.SOUND_GENTLE = self.sound_files[val]
         self._preview(self.sound_files[val])
+        config.save_settings()
 
     def _on_l2(self, val):
         self._l2_idx = val
         config.SOUND_MEDIUM = self.sound_files[val]
         self._preview(self.sound_files[val])
+        config.save_settings()
 
     def _on_l3(self, val):
         self._l3_idx = val
         config.SOUND_AGGRESSIVE = self.sound_files[val]
         self._preview(self.sound_files[val])
+        config.save_settings()
 
     # --- timing callbacks ---
 
     def _on_grace(self, val):
         config.DISTRACTION_GRACE_PERIOD = max(val, 1)
+        config.save_settings()
 
     def _on_cooldown(self, val):
         config.ALERT_COOLDOWN = max(val, 1)
+        config.save_settings()
 
     def _on_escalation(self, val):
         config.ESCALATION_INTERVAL = max(val, 5)
+        config.save_settings()
 
     def _on_yaw(self, val):
         config.YAW_THRESHOLD = max(val, 5)
+        config.save_settings()
 
     def _on_pitch_down(self, val):
         config.PITCH_DOWN_DEVIATION = max(val, 5)
+        config.save_settings()
 
     def _on_pitch_up(self, val):
         config.PITCH_UP_DEVIATION = max(val, 5)
+        config.save_settings()
 
     # --- sound preview ---
 
